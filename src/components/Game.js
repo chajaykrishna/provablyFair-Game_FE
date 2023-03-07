@@ -113,15 +113,15 @@ const Game = () => {
         <div className="h-2/3 w-2/3 bg-gradient-to-b from-white to bg-gray-300 flex flex-col items-center justify-between rounded overflow-hidden">
             <h1 className={(lost || won)?colorfulText(): 'text-8xl font-bold text-gray-600 mt-[10%]'} > { result ? result: infiniteNum } </h1>
             <div className='mb-10'>
-                <button className='bg-blue-500 hover:bg-blue-700 text-white text-2xl font-bold py-3 px-6 rounded-md' onClick={getRandomNumber}> 
+                <button className='bg-blue-500 hover:bg-blue-700 text-white text-xl font-bold py-3 px-6 rounded-lg' onClick={getRandomNumber}> 
                     PLAY
                 </button>
             </div>
         </div>
         <div className='w-2/3 flex justify-evenly items-center mt-2 mb-4'>
-            <span className={lessThan50?'text-5xl text-white border-4 border-orange-300 font-bold py-2 px-4 bg-orange-500 rounded-lg':'text-5xl hover:border-4 text-orange-500  border-orange-300 cursor-pointer font-bold py-2 px-4 bg-gray-100 rounded-lg'} 
+            <span className={lessThan50?'text-3xl text-white border-4 border-orange-300 font-bold py-2 px-4 bg-orange-500 rounded-lg':'text-3xl hover:border-4 text-orange-500  border-orange-300 cursor-pointer font-bold py-2 px-4 bg-gray-100 rounded-lg'} 
             onClick={selectLess50}> {'<50'} </span>
-            <span className={moreThan50?'text-5xl text-white border-4 border-orange-300 font-bold py-2 px-4 bg-orange-500 rounded-lg':'text-5xl hover:border-4 text-orange-500  border-orange-300 cursor-pointer font-bold py-2 px-4 bg-gray-100 rounded-lg'} 
+            <span className={moreThan50?'text-3xl text-white border-4 border-orange-300 font-bold py-2 px-4 bg-orange-500 rounded-lg':'text-3xl hover:border-4 text-orange-500  border-orange-300 cursor-pointer font-bold py-2 px-4 bg-gray-100 rounded-lg'} 
             onClick={selectMore50}> {'>50'} </span>
         </div>
         
@@ -129,14 +129,14 @@ const Game = () => {
         <div class="h-1/4 w-2/3 bg-gray-200 flex flex-col flex-wrap justify-between items-center rounded">
             {/* verify button that stays next the edge*/}
             <div className='w-2/3 flex justify-center'>
-                <a href='https://www.provablyfair.me/casino/stake-verifier/' target="_blank"><span className='text-xl text-blue-400 font-semibold mr-0 cursor-pointer hover:text-blue-700 underline' onClick={verifyResult}>Verify Result</span></a>
+                <a href='https://www.provablyfair.me/casino/stake-verifier/' target="_blank"><span className='text-blue-400 font-semibold mr-0 cursor-pointer hover:text-blue-700 underline' onClick={verifyResult}>Verify Result</span></a>
             </div>
             <div className='flex flex-col flex-wrap'>
-                <a><span className='text-2xl font-semibold text-black ml-16'>nonce: </span> <span className='text-2xl font-semibold text-gray-500'>{nonce}</span>  </a>
-                <a><span className='text-2xl font-semibold text-black'>clientSeed: </span> <span className='text-2xl font-semibold text-gray-500'>{clientSeed}</span> 
-                <span className='text-xl bg-blue-400 font-semibold rounded-md text-white ml-3 p-1 hover:bg-blue-600 cursor-pointer' onClick={changeClientSeed}>change</span> </a>
-                <a><span className='text-2xl font-semibold text-black'>hashedServerSeed: </span> <span className='text-2xl font-semibold text-gray-500'>{hashedServerSeed}</span>  </a>
-                <a><span className='text-2xl font-semibold text-black'>previousServerSeed: </span> <span className='text-2xl font-semibold text-gray-500'>{previousServerSeed}</span>  </a>
+                <a><span className='text-lg font-semibold text-black'>nonce: </span> <span className='text-lg font-semibold text-gray-500'>{nonce}</span>  </a>
+                <a><span className='text-lg font-semibold text-black'>clientSeed: </span> <span className='text-lg font-semibold text-gray-500'>{clientSeed}</span> 
+                <span className='text-sm bg-blue-400 font-semibold rounded-md text-white ml-3 p-1 hover:bg-blue-600 cursor-pointer' onClick={changeClientSeed}>change</span> </a>
+                <a><span className='text-lg font-semibold text-black'>hashedServerSeed: </span> <span className='text-lg font-semibold text-gray-500'>{hashedServerSeed}</span>  </a>
+                <a><span className='text-lg font-semibold text-black'>previousServerSeed: </span> <span className='text-lg font-semibold text-gray-500'>{previousServerSeed}</span>  </a>
             </div>
         </div>
       </div>
