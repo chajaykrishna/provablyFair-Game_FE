@@ -30,16 +30,10 @@ const Game = () => {
             setHashedServerSeed(res.data.random.hashedServerSeed);
             setPreviousServerSeed(res.data.random.previousServerSeed);
             setClientSeed(res.data.random.clientSeed);
-            const _result = ((res.data.random.finalResult[0])/100).toFixed(1);
+            const _result = Math.trunc(res.data.random.finalResult[0])/100;
             // wait for a second before setting the result
             setTimeout(() => { 
                 setResult(_result);
-                console.log('result', _result)
-                console.log('lessThan50', lessThan50)
-                console.log('moreThan50', moreThan50)
-                console.log('won', won)
-                console.log('lost', lost)
-                console.log(((_result < 50) && lessThan50))
                 if (((_result < 50) && lessThan50) || ((_result >= 50) && moreThan50)) {
                     setWon(true);
                 }
@@ -110,7 +104,7 @@ const Game = () => {
   return (
       <div className={(lost || won)? (lost? 'flex flex-col h-screen items-center justify-between bg-gradient-to-b from-white to bg-red-200' : 'flex flex-col h-screen items-center justify-between bg-gradient-to-b from-white to bg-green-200'): 'flex flex-col h-screen items-center justify-between bg-gradient-to-b from-yellow-100 to bg-gray-200'}>
         {/* div stays in the top quater */}
-        <div className="h-2/3 w-2/3 bg-gradient-to-b from-white to bg-gray-300 flex flex-col items-center justify-between rounded overflow-hidden">
+        <div className="h-2/3 rounded-b-3xl w-2/3 bg-gradient-to-b from-white to bg-sky-100 flex flex-col items-center justify-between">
             <h1 className={(lost || won)?colorfulText(): 'text-8xl font-bold text-gray-600 mt-[10%]'} > { result ? result: infiniteNum } </h1>
             <div className='mb-10'>
                 <button className='bg-blue-500 hover:bg-blue-700 text-white text-xl font-bold py-3 px-6 rounded-lg' onClick={getRandomNumber}> 
@@ -118,7 +112,7 @@ const Game = () => {
                 </button>
             </div>
         </div>
-        <div className='w-2/3 flex justify-evenly items-center mt-2 mb-4'>
+        <div className='w-2/3 flex justify-evenly items-center mt-2 mb-6'>
             <span className={lessThan50?'text-3xl text-white border-4 border-orange-300 font-bold py-2 px-4 bg-orange-500 rounded-lg':'text-3xl hover:border-4 text-orange-500  border-orange-300 cursor-pointer font-bold py-2 px-4 bg-gray-100 rounded-lg'} 
             onClick={selectLess50}> {'<50'} </span>
             <span className={moreThan50?'text-3xl text-white border-4 border-orange-300 font-bold py-2 px-4 bg-orange-500 rounded-lg':'text-3xl hover:border-4 text-orange-500  border-orange-300 cursor-pointer font-bold py-2 px-4 bg-gray-100 rounded-lg'} 
@@ -126,7 +120,7 @@ const Game = () => {
         </div>
         
 
-        <div class="h-1/4 w-2/3 bg-gray-200 flex flex-col flex-wrap justify-between items-center rounded">
+        <div class="h-1/4 rounded-t-3xl w-2/3 bg-gray-200 flex flex-col flex-wrap justify-between items-center rounded">
             {/* verify button that stays next the edge*/}
             <div className='w-2/3 flex justify-center'>
                 <a href='https://www.provablyfair.me/casino/stake-verifier/' target="_blank"><span className='text-blue-400 font-semibold mr-0 cursor-pointer hover:text-blue-700 underline' onClick={verifyResult}>Verify Result</span></a>
